@@ -166,7 +166,7 @@ Resources:
           Name: email
           Required: true
       SmsVerificationMessage: The verification code to your new account is {####}
-      UserPoolName: textract-cognito-demo
+      UserPoolName: smartdocextract-cognito
       VerificationMessageTemplate:
         DefaultEmailOption: CONFIRM_WITH_CODE
         EmailMessage: The verification code to your new account is {####}
@@ -193,7 +193,7 @@ Resources:
         - aws.cognito.signin.user.admin
       CallbackURLs:
         - http://localhost:3000
-      ClientName: textract-cognito-demo-client
+      ClientName: smartdocextract-client
       SupportedIdentityProviders:
         - COGNITO
     Metadata:

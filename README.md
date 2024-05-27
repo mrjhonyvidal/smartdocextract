@@ -48,6 +48,7 @@ documents like medical records, financial reports, and tax forms.
 
         ```
         aws cloudformation create-stack --stack-name <stack-name> --template-body file://setup.yaml --capabilities CAPABILITY_IAM
+        aws cloudformation create-stack --stack-name smartdocextract --template-body file://setup.yaml --capabilities CAPABILITY_IAM
         ```
 
         The `setup.yaml` file was built from the
@@ -69,6 +70,7 @@ documents like medical records, financial reports, and tax forms.
 
         ```
         node AddRemoveAssets.js add <stack-name>
+        node AddRemoveAssets.js add smartdocextract
         ```
 
         This script puts output data from the CloudFormation stack into the `Config.js` file
@@ -208,3 +210,18 @@ npm test
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ---
+
+### Research
+
+- [https://github.com/aws-samples/amazon-textract-code-samples](https://github.com/aws-samples/amazon-textract-code-samples)
+- [https://github.com/aws-samples/document-data-extraction-using-aws-textract](https://github.com/aws-samples/document-data-extraction-using-aws-textract)
+- [https://github.com/awsdocs/aws-doc-sdk-examples](https://github.com/awsdocs/aws-doc-sdk-examples)
+- [https://aws.amazon.com/blogs/machine-learning/building-an-nlp-powered-search-index-with-amazon-textract-and-amazon-comprehend/](https://aws.amazon.com/blogs/machine-learning/building-an-nlp-powered-search-index-with-amazon-textract-and-amazon-comprehend/)
+- [https://aws.amazon.com/blogs/machine-learning/building-an-nlp-powered-search-index-with-amazon-textract-and-amazon-comprehend/](https://aws.amazon.com/blogs/machine-learning/building-an-nlp-powered-search-index-with-amazon-textract-and-amazon-comprehend/)
+
+- Investigate the Cloud Development Kit used, the impact in the resources created in AWS and how to change if necessary [https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/resources/cdk/textract_example_s3_sns_sqs_cognito](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/resources/cdk/textract_example_s3_sns_sqs_cognito)
+
+#### Troubleshoot
+Why for AddRemoveAssets.js we need to add "type": "module" to package.json in order to work and for running the project we need to remove.
+
+
