@@ -219,6 +219,17 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - [https://aws.amazon.com/blogs/machine-learning/building-an-nlp-powered-search-index-with-amazon-textract-and-amazon-comprehend/](https://aws.amazon.com/blogs/machine-learning/building-an-nlp-powered-search-index-with-amazon-textract-and-amazon-comprehend/)
 - [https://aws.amazon.com/blogs/machine-learning/building-an-nlp-powered-search-index-with-amazon-textract-and-amazon-comprehend/](https://aws.amazon.com/blogs/machine-learning/building-an-nlp-powered-search-index-with-amazon-textract-and-amazon-comprehend/)
 
+- [https://aws.amazon.com/blogs/architecture/automate-your-data-extraction-for-oil-well-data-with-amazon-textract/](https://aws.amazon.com/blogs/architecture/automate-your-data-extraction-for-oil-well-data-with-amazon-textract/)
+- [https://aws.amazon.com/blogs/machine-learning/part-1-intelligent-document-processing-with-aws-ai-services/](https://aws.amazon.com/blogs/machine-learning/part-1-intelligent-document-processing-with-aws-ai-services/)
+- [https://www.youtube.com/watch?v=_HN7xCHJSxE&ab_channel=BHMAWS](https://www.youtube.com/watch?v=_HN7xCHJSxE&ab_channel=BHMAWS)
+- [https://www.youtube.com/watch?v=FsdQYWh-6qo&ab_channel=AWSDevelopers](https://www.youtube.com/watch?v=FsdQYWh-6qo&ab_channel=AWSDevelopers)
+- [https://d1.awsstatic.com/events/Summits/awstorontosummit/Extract_data_and_insights_from_your_documents_with_AI-ML_AIM301.pdf](https://d1.awsstatic.com/events/Summits/awstorontosummit/Extract_data_and_insights_from_your_documents_with_AI-ML_AIM301.pdf)
+- [https://aws.amazon.com/blogs/machine-learning/automatically-extract-text-and-structured-data-from-documents-with-amazon-textract/](https://aws.amazon.com/blogs/machine-learning/automatically-extract-text-and-structured-data-from-documents-with-amazon-textract/)
+- [https://medium.com/globant/extracting-expense-document-information-using-aws-textract-58384e4b6d94](https://medium.com/globant/extracting-expense-document-information-using-aws-textract-58384e4b6d94)
+- [https://www.linkedin.com/pulse/data-pipeline-extracting-information-from-document-using-bamnote/](https://www.linkedin.com/pulse/data-pipeline-extracting-information-from-document-using-bamnote/)
+- [https://www.domaonline.com/2021/04/06/aws-ml/](https://www.domaonline.com/2021/04/06/aws-ml/)
+- [https://docs.aws.amazon.com/code-library/latest/ug/cross_TextractExplorer_javascript_3_topic.html](https://docs.aws.amazon.com/code-library/latest/ug/cross_TextractExplorer_javascript_3_topic.html)
+
 - Investigate the Cloud Development Kit used, the impact in the resources created in AWS and how to change if necessary [https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/resources/cdk/textract_example_s3_sns_sqs_cognito](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/resources/cdk/textract_example_s3_sns_sqs_cognito)
 
 #### Troubleshoot
