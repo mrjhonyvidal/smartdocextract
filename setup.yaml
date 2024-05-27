@@ -214,9 +214,7 @@ Resources:
         - ClientId:
             Ref: textractcognitodemoidtextractcognitodemoclientidB9ABA9D2
           ProviderName:
-            Fn::GetAtt:
-              - textractcognitodemoidA350B90F
-              - ProviderName
+            Fn::Sub: "cognito-idp.${AWS::Region}.amazonaws.com/${textractcognitodemoidA350B90F}"
     Metadata:
       aws:cdk:path: textract-example-s3-sns-sqs-cognito/textract-cognito-demo-idpool
   textractcognitodemoauthenticatedrole685306DF:
@@ -240,7 +238,7 @@ Resources:
             - ""
             - - "arn:"
               - Ref: AWS::Partition
-              - :iam::aws:policy/AmazonTextractFullAccess
+              - ":iam::aws:policy/AmazonTextractFullAccess"
     Metadata:
       aws:cdk:path: textract-example-s3-sns-sqs-cognito/textract-cognito-demo-authenticated-role/Resource
   textractcognitodemoauthenticatedroleDefaultPolicyBF97699E:
