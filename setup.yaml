@@ -1,5 +1,5 @@
 Resources:
-  textractcognitodemobucket90CF6A3D:
+  smartdocextractbucket90CF6A3D:
     Type: AWS::S3::Bucket
     Properties:
       CorsConfiguration:
@@ -17,11 +17,11 @@ Resources:
     DeletionPolicy: Delete
     Metadata:
       aws:cdk:path: textract-example-s3-sns-sqs-cognito/textract-cognito-demo-bucket/Resource
-  textractcognitodemobucketPolicyEC175C33:
+  smartdocextractbucketPolicyEC175C33:
     Type: AWS::S3::BucketPolicy
     Properties:
       Bucket:
-        Ref: textractcognitodemobucket90CF6A3D
+        Ref: smartdocextractbucket90CF6A3D
       PolicyDocument:
         Statement:
           - Action: s3:*
@@ -33,12 +33,12 @@ Resources:
               AWS: "*"
             Resource:
               - Fn::GetAtt:
-                  - textractcognitodemobucket90CF6A3D
+                  - smartdocextractbucket90CF6A3D
                   - Arn
               - Fn::Join:
                   - ""
                   - - Fn::GetAtt:
-                        - textractcognitodemobucket90CF6A3D
+                        - smartdocextractbucket90CF6A3D
                         - Arn
                     - /*
           - Action:
@@ -53,24 +53,24 @@ Resources:
               Service: textract.amazonaws.com
             Resource:
               - Fn::GetAtt:
-                  - textractcognitodemobucket90CF6A3D
+                  - smartdocextractbucket90CF6A3D
                   - Arn
               - Fn::Join:
                   - ""
                   - - Fn::GetAtt:
-                        - textractcognitodemobucket90CF6A3D
+                        - smartdocextractbucket90CF6A3D
                         - Arn
                     - /*
         Version: "2012-10-17"
     Metadata:
       aws:cdk:path: textract-example-s3-sns-sqs-cognito/textract-cognito-demo-bucket/Policy/Resource
-  textractcognitodemoqueue80660218:
+  smartdocextractqueue80660218:
     Type: AWS::SQS::Queue
     UpdateReplacePolicy: Delete
     DeletionPolicy: Delete
     Metadata:
       aws:cdk:path: textract-example-s3-sns-sqs-cognito/textract-cognito-demo-queue/Resource
-  textractcognitodemoqueuePolicyBCDA074B:
+  smartdocextractqueuePolicyBCDA074B:
     Type: AWS::SQS::QueuePolicy
     Properties:
       PolicyDocument:
@@ -79,32 +79,32 @@ Resources:
             Condition:
               ArnEquals:
                 aws:SourceArn:
-                  Ref: textractcognitodemotopicEEA53D4C
+                  Ref: smartdocextracttopicEEA53D4C
             Effect: Allow
             Principal:
               Service: sns.amazonaws.com
             Resource:
               Fn::GetAtt:
-                - textractcognitodemoqueue80660218
+                - smartdocextractqueue80660218
                 - Arn
         Version: "2012-10-17"
       Queues:
-        - Ref: textractcognitodemoqueue80660218
+        - Ref: smartdocextractqueue80660218
     Metadata:
       aws:cdk:path: textract-example-s3-sns-sqs-cognito/textract-cognito-demo-queue/Policy/Resource
-  textractcognitodemoqueuetextractexamples3snssqscognitotextractcognitodemotopicFFD128FEBB42A55F:
+  smartdocextractqueuetextractexamples3snssqscognitosmartdocextracttopicFFD128FEBB42A55F:
     Type: AWS::SNS::Subscription
     Properties:
       Protocol: sqs
       TopicArn:
-        Ref: textractcognitodemotopicEEA53D4C
+        Ref: smartdocextracttopicEEA53D4C
       Endpoint:
         Fn::GetAtt:
-          - textractcognitodemoqueue80660218
+          - smartdocextractqueue80660218
           - Arn
     Metadata:
-      aws:cdk:path: textract-example-s3-sns-sqs-cognito/textract-cognito-demo-queue/textractexamples3snssqscognitotextractcognitodemotopicFFD128FE/Resource
-  textractcognitodemotopicEEA53D4C:
+      aws:cdk:path: textract-example-s3-sns-sqs-cognito/textract-cognito-demo-queue/textractexamples3snssqscognitosmartdocextracttopicFFD128FE/Resource
+  smartdocextracttopicEEA53D4C:
     Type: AWS::SNS::Topic
     Properties:
       KmsMasterKeyId:
@@ -119,7 +119,7 @@ Resources:
             - :alias/aws/sns
     Metadata:
       aws:cdk:path: textract-example-s3-sns-sqs-cognito/textract-cognito-demo-topic/Resource
-  textractcognitodemotextractrole79875A6E:
+  smartdocextracttextractrole79875A6E:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
@@ -131,7 +131,7 @@ Resources:
         Version: "2012-10-17"
     Metadata:
       aws:cdk:path: textract-example-s3-sns-sqs-cognito/textract-cognito-demo-textract-role/Resource
-  textractcognitodemotextractroleDefaultPolicyEFEEB181:
+  smartdocextracttextractroleDefaultPolicyEFEEB181:
     Type: AWS::IAM::Policy
     Properties:
       PolicyDocument:
@@ -139,14 +139,14 @@ Resources:
           - Action: sns:Publish
             Effect: Allow
             Resource:
-              Ref: textractcognitodemotopicEEA53D4C
+              Ref: smartdocextracttopicEEA53D4C
         Version: "2012-10-17"
-      PolicyName: textractcognitodemotextractroleDefaultPolicyEFEEB181
+      PolicyName: smartdocextracttextractroleDefaultPolicyEFEEB181
       Roles:
-        - Ref: textractcognitodemotextractrole79875A6E
+        - Ref: smartdocextracttextractrole79875A6E
     Metadata:
       aws:cdk:path: textract-example-s3-sns-sqs-cognito/textract-cognito-demo-textract-role/DefaultPolicy/Resource
-  textractcognitodemoidA350B90F:
+  smartdocextractidA350B90F:
     Type: AWS::Cognito::UserPool
     Properties:
       AccountRecoverySetting:
@@ -176,11 +176,11 @@ Resources:
     DeletionPolicy: Retain
     Metadata:
       aws:cdk:path: textract-example-s3-sns-sqs-cognito/textract-cognito-demo-id/Resource
-  textractcognitodemoidtextractcognitodemoclientidB9ABA9D2:
+  smartdocextractidsmartdocextractclientidB9ABA9D2:
     Type: AWS::Cognito::UserPoolClient
     Properties:
       UserPoolId:
-        Ref: textractcognitodemoidA350B90F
+        Ref: smartdocextractidA350B90F
       AllowedOAuthFlows:
         - implicit
         - code
@@ -198,26 +198,28 @@ Resources:
         - COGNITO
     Metadata:
       aws:cdk:path: textract-example-s3-sns-sqs-cognito/textract-cognito-demo-id/textract-cognito-demo-client-id/Resource
-  textractcognitodemoidtextractcognitodemodomainEBB6899F:
+  smartdocextractidsmartdocextractdomainEBB6899F:
     Type: AWS::Cognito::UserPoolDomain
     Properties:
-      Domain: textract-demo
+      Domain: smartdocextract
       UserPoolId:
-        Ref: textractcognitodemoidA350B90F
+        Ref: smartdocextractidA350B90F
     Metadata:
       aws:cdk:path: textract-example-s3-sns-sqs-cognito/textract-cognito-demo-id/textract-cognito-demo-domain/Resource
-  textractcognitodemoidpool:
+  smartdocextractidpool:
     Type: AWS::Cognito::IdentityPool
     Properties:
       AllowUnauthenticatedIdentities: false
       CognitoIdentityProviders:
         - ClientId:
-            Ref: textractcognitodemoidtextractcognitodemoclientidB9ABA9D2
+            Ref: smartdocextractidsmartdocextractclientidB9ABA9D2
           ProviderName:
-            Fn::Sub: "cognito-idp.${AWS::Region}.amazonaws.com/${textractcognitodemoidA350B90F}"
+            Fn::GetAtt:
+              - smartdocextractidA350B90F
+              - ProviderName
     Metadata:
       aws:cdk:path: textract-example-s3-sns-sqs-cognito/textract-cognito-demo-idpool
-  textractcognitodemoauthenticatedrole685306DF:
+  smartdocextractauthenticatedrole685306DF:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
@@ -226,7 +228,7 @@ Resources:
             Condition:
               StringEquals:
                 cognito-identity.amazonaws.com:aud:
-                  Ref: textractcognitodemoidpool
+                  Ref: smartdocextractidpool
               ForAnyValue:StringLike:
                 cognito-identity.amazonaws.com:amr: authenticated
             Effect: Allow
@@ -238,10 +240,10 @@ Resources:
             - ""
             - - "arn:"
               - Ref: AWS::Partition
-              - ":iam::aws:policy/AmazonTextractFullAccess"
+              - :iam::aws:policy/AmazonTextractFullAccess
     Metadata:
       aws:cdk:path: textract-example-s3-sns-sqs-cognito/textract-cognito-demo-authenticated-role/Resource
-  textractcognitodemoauthenticatedroleDefaultPolicyBF97699E:
+  smartdocextractauthenticatedroleDefaultPolicyBF97699E:
     Type: AWS::IAM::Policy
     Properties:
       PolicyDocument:
@@ -258,7 +260,7 @@ Resources:
             Effect: Allow
             Resource:
               Fn::GetAtt:
-                - textractcognitodemoqueue80660218
+                - smartdocextractqueue80660218
                 - Arn
           - Action: s3:GetObject
             Effect: Allow
@@ -266,24 +268,24 @@ Resources:
               Fn::Join:
                 - ""
                 - - Fn::GetAtt:
-                      - textractcognitodemobucket90CF6A3D
+                      - smartdocextractbucket90CF6A3D
                       - Arn
                   - /*
         Version: "2012-10-17"
-      PolicyName: textractcognitodemoauthenticatedroleDefaultPolicyBF97699E
+      PolicyName: smartdocextractauthenticatedroleDefaultPolicyBF97699E
       Roles:
-        - Ref: textractcognitodemoauthenticatedrole685306DF
+        - Ref: smartdocextractauthenticatedrole685306DF
     Metadata:
       aws:cdk:path: textract-example-s3-sns-sqs-cognito/textract-cognito-demo-authenticated-role/DefaultPolicy/Resource
   DefaultValid:
     Type: AWS::Cognito::IdentityPoolRoleAttachment
     Properties:
       IdentityPoolId:
-        Ref: textractcognitodemoidpool
+        Ref: smartdocextractidpool
       Roles:
         authenticated:
           Fn::GetAtt:
-            - textractcognitodemoauthenticatedrole685306DF
+            - smartdocextractauthenticatedrole685306DF
             - Arn
     Metadata:
       aws:cdk:path: textract-example-s3-sns-sqs-cognito/DefaultValid
@@ -300,18 +302,18 @@ Outputs:
       Ref: AWS::Region
   DefaultBucketName:
     Value:
-      Ref: textractcognitodemobucket90CF6A3D
+      Ref: smartdocextractbucket90CF6A3D
   SNSTopicArn:
     Value:
-      Ref: textractcognitodemotopicEEA53D4C
+      Ref: smartdocextracttopicEEA53D4C
   RoleArn:
     Value:
       Fn::GetAtt:
-        - textractcognitodemotextractrole79875A6E
+        - smartdocextracttextractrole79875A6E
         - Arn
   QueueUrl:
     Value:
-      Ref: textractcognitodemoqueue80660218
+      Ref: smartdocextractqueue80660218
   CognitoId:
     Value:
       Fn::Join:
@@ -319,21 +321,21 @@ Outputs:
         - - cognito-idp.
           - Ref: AWS::Region
           - .amazonaws.com/
-          - Ref: textractcognitodemoidA350B90F
+          - Ref: smartdocextractidA350B90F
   CognitoUserPoolId:
     Value:
-      Ref: textractcognitodemoidA350B90F
+      Ref: smartdocextractidA350B90F
   CognitoIdentityPoolId:
     Value:
-      Ref: textractcognitodemoidpool
+      Ref: smartdocextractidpool
   LoginUrl:
     Value:
       Fn::Join:
         - ""
-        - - https://textract-demo.auth.
+        - - https://smartdocextract.auth.
           - Ref: AWS::Region
           - .amazoncognito.com/login?client_id=
-          - Ref: textractcognitodemoidtextractcognitodemoclientidB9ABA9D2
+          - Ref: smartdocextractidsmartdocextractclientidB9ABA9D2
           - "&response_type=token&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri=http://localhost:3000"
 Conditions:
   CDKMetadataAvailable:
